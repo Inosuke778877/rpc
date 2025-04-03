@@ -19,10 +19,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         /* Fullscreen Background */
         body {
             font-family: 'Poppins', sans-serif;
-            background: url('https://cdn.discordapp.com/attachments/1351482852813836391/1356527859543445584/Explosion_Fireworks_GIF_by_Xbox.gif?ex=67ece484&is=67eb9304&hm=aa3e0e26380169d0d1be0bbf94bd53169873107253bcddcd1a17ff498160fa5a&') no-repeat center center fixed;
+            background: url('https://cdn.discordapp.com/attachments/1351482852813836391/1356340376775950446/anime-moon-landscape.jpg?ex=67ef81a9&is=67ee3029&hm=2ff47f77384d99977994dda6d0f9e9a3ded8b599c48e46d0f6479ca8f2e2a126&') no-repeat center center fixed;
             background-size: cover;
             background-attachment: fixed;
             min-height: 100vh;
@@ -33,13 +40,49 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
+        }
+
+        /* Preload Screen */
+        .preload-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+            z-index: 9999;
+        }
+
+        /* Click to Enter Button */
+        .preload-screen span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 2px solid #00ff99;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .preload-screen span:hover {
+            background: rgba(0, 255, 153, 0.3);
+            transform: scale(1.1);
         }
 
         /* Profile Container */
         .container {
             max-width: 500px;
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
@@ -47,12 +90,17 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out, visibility 1s;
         }
 
         /* Avatar */
         .avatar {
             width: 100px;
             height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
         }
 
         /* Profile Content */
@@ -79,8 +127,6 @@
             display: flex;
             align-items: center;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
             padding: 10px;
             margin: 5px 0;
             text-decoration: none;
@@ -102,43 +148,18 @@
             margin-right: 10px;
         }
 
-        /* Transparent Play Button */
-        .play-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .play-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Play Icon */
-        .play-btn img {
-            width: 30px;
-            height: 30px;
-        }
-
     </style>
 </head>
 <body>
 
-    <!-- Transparent Play Button -->
-    <div class="play-btn" id="playButton">
-        <img src="https://cdn-icons-png.freepik.com/256/16784/16784640.png?semt=ais_hybrid" alt="Play">
+    <!-- Click-to-Enter Screen -->
+    <div class="preload-screen" id="preloadScreen">
+        WELCOME NIGGA  <br>
+        <span>Click to Enter</span>
     </div>
 
     <!-- Profile Section -->
-    <div class="container">
+    <div class="container" id="mainContent">
         <img src="https://www.gifcen.com/wp-content/uploads/2022/07/inosuke-gif.gif" alt="Profile Picture" class="avatar">
         
         <div class="profile-info">
@@ -146,19 +167,18 @@
             <p class="bio">Developer | Gamer | Coder </p>
             <p class="description">Nothing here...</p>
 
-
             <div class="social-links">
                 <a href="https://discord.gg/tF2wkXPYFw" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8q8_5DUy83LJscL5jc-kB2B0CsDumFALYtdOIq29DEGDuy7A9KmQW7ChQ&s=10" alt="Discord Logo"> Discord
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord"> Discord
                 </a>
                 <a href="https://github.com/inosuke778877" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB_O4k253BdVY8dGN8Q80YEA9KjsfwynuOy-ucGLPa5Q&s" alt="GitHub Logo"> GitHub
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub"> GitHub
                 </a>
                 <a href="https://twitter.com/YOUR_REAL_TWITTER" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhj_o2d_86DhA-g1KdlsxFQQKNFimREJrkg&s" alt="Twitter Logo"> Twitter
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"> Twitter
                 </a>
-                <a href="https://youtube.com/@inosuke-zm4nq?si=2ShzEyfrM2_nvbLx" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjfpgMWUTCV1_BYOJvg08uqlnIfeQHqnOag&s" alt="YouTube Logo"> YouTube
+                <a href="https://youtube.com/@inosuke-zm4nq" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"> YouTube
                 </a>
             </div>
         </div>
@@ -166,16 +186,26 @@
 
     <!-- Background Music -->
     <audio id="bg-music" loop>
-        <source src="" type="audio/mpeg">
+        <source src="https://example.com/your-music.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        // Play Button Functionality
-        document.getElementById("playButton").addEventListener("click", function () {
+        document.getElementById("preloadScreen").addEventListener("click", function () {
             let audio = document.getElementById("bg-music");
-            audio.play().then(() => {
-                document.getElementById("playButton").style.display = "none"; // Hide button after playing
-            }).catch(error => console.log("Playback failed:", error));
+            let mainContent = document.getElementById("mainContent");
+
+            // Fade out preload screen
+            this.style.opacity = "0";
+            this.style.visibility = "hidden";
+
+            // Fade in main content
+            setTimeout(() => {
+                mainContent.style.opacity = "1";
+                mainContent.style.visibility = "visible";
+            }, 800);
+
+            // Start playing music
+            audio.play().catch(error => console.log("Playback failed:", error));
         });
     </script>
 
