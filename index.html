@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inosuke_on_drugxxx - Profile</title>
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="inosuke_on_drugxxx - Profile">
     <meta property="og:description" content="Check out my social links and connect with me!">
@@ -19,107 +19,115 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         /* Fullscreen Background */
         body {
             font-family: 'Poppins', sans-serif;
-            background: url('https://cdn.discordapp.com/attachments/1351482852813836391/1357264173716865054/view-urban-dark-city-with-fog.jpg?ex=67ef9243&is=67ee40c3&hm=6fdc83e328c313ab5162fe912f0e8412eba19b5526e0cce90d2e946e04161f87&') no-repeat center center fixed;
+            background: url('https://cdn.discordapp.com/attachments/1351482852813836391/1356330255274737794/japan-background-digital-art.jpg?ex=67f0c9bc&is=67ef783c&hm=5fa1ce3b1287792eb7f2376a2a41113f2c6b6ea39f09651ca8c6435c30690edc&') no-repeat center center fixed;
             background-size: cover;
             background-attachment: fixed;
             min-height: 100vh;
             color: #fff;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
         }
 
-        /* Preload Screen */
-        .preload-screen {
+        /* Click-to-Enter Screen */
+        #click-screen {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
+            z-index: 999;
             text-align: center;
-            cursor: pointer;
-            transition: opacity 0.8s ease-in-out, visibility 0.8s;
-            z-index: 9999;
         }
 
-        /* Click to Enter Button */
-        .preload-screen span {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px 30px;
-            border-radius: 10px;
-            border: 2px solid #00ff99;
-            margin-top: 20px;
+        #click-screen h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        #enter-button {
+            background: #00ff99;
+            color: black;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        .preload-screen span:hover {
-            background: rgba(0, 255, 153, 0.3);
-            transform: scale(1.1);
+        #enter-button:hover {
+            background: #00cc77;
         }
 
-        /* Profile Container */
-        .container {
-            max-width: 500px;
+        /* Profile Card */
+        .profile-card {
+            width: 400px;
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(10px);
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
             box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1s ease-in-out, visibility 1s;
+            text-align: center;
+            position: relative;
         }
 
-        /* Avatar */
+        /* Banner */
+        .banner {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px 10px 0 0;
+            background: url('https://cdn.discordapp.com/attachments/1351482852813836391/1356527859543445584/Explosion_Fireworks_GIF_by_Xbox.gif?ex=67f0d904&is=67ef8784&hm=06929f31a3fe600684d5c4f9619a1a20bb57e567c12348c9af7ba6385f839324&') no-repeat center;
+            background-size: cover;
+        }
+
+        /* Profile Picture */
         .avatar {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 3px solid white;
+            border: 4px solid #000;
+            position: absolute;
+            top: 60px;
+            left: 20px;
         }
 
         /* Profile Content */
         .profile-info {
-            flex-grow: 1;
+            margin-top: 50px;
+            padding-top: 20px;
         }
 
         /* Username */
         .name {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 600;
-            margin: 0;
+            margin-top: 10px;
         }
 
         /* Bio */
         .bio {
             font-size: 16px;
             color: #ddd;
-            margin-bottom: 15px;
+        }
+
+        /* About Me Box */
+        .about-me {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            margin: 15px 10px;
+            font-size: 14px;
+            text-align: left;
+            color: #ddd;
         }
 
         /* Social Links */
@@ -133,18 +141,18 @@
             color: #fff;
             border-radius: 10px;
             transition: 0.3s;
-            font-size: 18px;
+            font-size: 16px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
+
         .social-links a:hover {
             background: rgba(0, 255, 153, 0.3);
-            transform: scale(1.05);
         }
 
         /* Social Icons */
         .social-links img {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             margin-right: 10px;
         }
 
@@ -153,32 +161,37 @@
 <body>
 
     <!-- Click-to-Enter Screen -->
-    <div class="preload-screen" id="preloadScreen">
-        WELCOME TO MY PROFILE <br>
-        <span>Click to Enter</span>
+    <div id="click-screen">
+        <h1>Click to Enter</h1>
+        <button id="enter-button">Enter</button>
     </div>
 
     <!-- Profile Section -->
-    <div class="container" id="mainContent">
+    <div class="profile-card" id="main-content" style="display: none;">
+        <div class="banner"></div>
         <img src="https://www.gifcen.com/wp-content/uploads/2022/07/inosuke-gif.gif" alt="Profile Picture" class="avatar">
         
         <div class="profile-info">
             <h1 class="name">INOSUKE_SMOKER</h1>
-            <p class="bio">Developer | Gamer | Coder </p>
-            <p class="description">Nothing here...</p>
+            <p class="bio">Developer | Gamer | Coder</p>
+
+            <!-- About Me Box -->
+            <div class="about-me">
+                <p>Just a coder who loves gaming and creating cool stuff.</p>
+            </div>
 
             <div class="social-links">
                 <a href="https://discord.gg/tF2wkXPYFw" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord"> Discord
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord Logo"> Discord
                 </a>
                 <a href="https://github.com/inosuke778877" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub"> GitHub
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo"> GitHub
                 </a>
                 <a href="https://twitter.com/YOUR_REAL_TWITTER" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"> Twitter
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="Twitter Logo"> Twitter
                 </a>
                 <a href="https://youtube.com/@inosuke-zm4nq" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"> YouTube
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Logo"> YouTube
                 </a>
             </div>
         </div>
@@ -186,25 +199,15 @@
 
     <!-- Background Music -->
     <audio id="bg-music" loop>
-        <source> src= "https://raw.githubusercontent.com/Inosuke778877/rpc/main/Fluxxwave.mp3" <type="audio/mpeg">
+        <source src="https://raw.githubusercontent.com/Inosuke778877/rpc/main/Fluxxwave.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        document.getElementById("preloadScreen").addEventListener("click", function () {
+        document.getElementById("enter-button").addEventListener("click", function () {
+            document.getElementById("click-screen").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+            
             let audio = document.getElementById("bg-music");
-            let mainContent = document.getElementById("mainContent");
-
-            // Fade out preload screen
-            this.style.opacity = "0";
-            this.style.visibility = "hidden";
-
-            // Fade in main content
-            setTimeout(() => {
-                mainContent.style.opacity = "1";
-                mainContent.style.visibility = "visible";
-            }, 800);
-
-            // Start playing music
             audio.play().catch(error => console.log("Playback failed:", error));
         });
     </script>
